@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Student extends Model
 {
@@ -15,7 +16,13 @@ class Student extends Model
         'first_name',
         'email',
         'phone',
-        'program',
+        'program_id',
+        'created_by',
     ];
+
+    public function user()
+    {
+    	return $this->belongsTo(User::class)
+    }
 
 }

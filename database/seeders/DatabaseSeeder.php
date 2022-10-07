@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // start the seeder of program table
+        $this->call([
+        ProgramTableSeeder::class,
+        ]);
     }
 }
