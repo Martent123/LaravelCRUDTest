@@ -39,4 +39,5 @@ class ProgramTableSeeder extends Seeder
         DB::table('programs')->insert([
             'program' => 'Journalism',
         ]);    }
+
 }
