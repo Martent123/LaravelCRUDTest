@@ -13,12 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// landing page
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// documentation
+Route::get('/docs', function () {
+    return view('docs');
+});
+
+// student list
+Route::get('/student', function () {
+    return view('student');
+})->middleware(['auth', 'verified'])->name('student');
 
 require __DIR__.'/auth.php';
