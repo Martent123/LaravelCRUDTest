@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Programs;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// landing page
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+// documentation
+Route::get('/docs', function () {
+    return view('docs');
+});
+
+// student list
+Route::get('/student', function () {
+    return view('student');
+})->middleware(['auth', 'verified'])->name('student');
+
+// student add
+Route::get('/studentCreate', function () {
+    return view('studentCreate');
+})->middleware(['auth', 'verified'])->name('student');
+
+
+//return list of programs in db
+Route::get('/programs', function(){
+	return Programs::select('program')->get();
+});
+
+Route::get('/dashboard', function () {
+    return view('student');
+})->middleware(['auth', 'verified'])->name('student');
+
+require __DIR__.'/auth.php';
