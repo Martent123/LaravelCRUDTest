@@ -3,7 +3,7 @@
 
 
     <!-- React root DOM -->
-    <div class="bg-gray-100 shadow" id="studentsShow">
+    <div class="bg-gray-100 shadow" id="studentCreate">
     </div>
 
 

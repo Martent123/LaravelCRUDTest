@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Programs;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,6 +25,21 @@ Route::get('/docs', function () {
 
 // student list
 Route::get('/student', function () {
+    return view('student');
+})->middleware(['auth', 'verified'])->name('student');
+
+// student add
+Route::get('/studentCreate', function () {
+    return view('studentCreate');
+})->middleware(['auth', 'verified'])->name('student');
+
+
+//return list of programs in db
+Route::get('/programs', function(){
+	return Programs::select('program')->get();
+});
+
+Route::get('/dashboard', function () {
     return view('student');
 })->middleware(['auth', 'verified'])->name('student');
 

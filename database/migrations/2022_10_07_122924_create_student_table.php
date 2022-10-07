@@ -23,16 +23,11 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('phone');
             $table->Integer('program_id')->unsigned()->index();
-            $table->bigInteger('created_by')->unsigned()->index();
             $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
             
-            // set foreign key for user and program table
-            $table->foreign('created_by')
-            ->references('id')
-            ->on('users')
-            ->onDelete('cascade');
+            // set foreign key for program table
             $table->foreign('program_id')
             ->references('id')
             ->on('programs')

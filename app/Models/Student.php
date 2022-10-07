@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Student extends Model
 {
     use HasFactory;
-
+    protected $table = 'student';
     //define fillable parameters
     protected $fillable = [
         'last_name',
@@ -17,12 +17,11 @@ class Student extends Model
         'email',
         'phone',
         'program_id',
-        'created_by',
     ];
 
     public function user()
     {
-    	return $this->belongsTo(User::class)
+    	return $this->belongsTo(User::class);
     }
 
 }

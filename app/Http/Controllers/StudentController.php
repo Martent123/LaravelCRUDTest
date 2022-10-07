@@ -7,6 +7,8 @@ use App\Models\Programs;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -29,6 +31,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+
         // validate inputs
 		$request->validate([
 			'last_name' => 'required',
@@ -46,7 +49,7 @@ class StudentController extends Controller
 
 		try{
 
-			$studentModel = new Student;
+			$studentModel = new Student();
 			
 			// get the data from request
 			$data = $request->all();
@@ -60,7 +63,8 @@ class StudentController extends Controller
 			$email = $data["email"];
 			$phone = $data["phone"];
 			$program = $data["program"];
-			$programId = Programs::where('program',$program) -> first();
+			$programId = DB::table('programs')->select('id')->where('program',$program)->first()->id;
+
 
 			// insert into db
 			$studentModel->last_name = $lastName;
@@ -68,64 +72,61 @@ class StudentController extends Controller
 			$studentModel->email = $email;
 			$studentModel->phone = $phone;
 			$studentModel->program_id = $programId;
-			$studentModel->created_by = $currentUser;
 			$studentModel->save();
 
 			// return success if no exception
-			return redirect()->route('student');
+			return response()->json([
+				'message' => 'Student Created :)'
+			], 200);
 
 		} catch (QueryException $qe){
+			// failed, Query Exception, return error message
 				Log::error($qe->getMessage());
-				return back()->with('fail', 'Oops, Something wrong with query');
+
+				return response()->json([
+					'message' => 'Oops, Something wrong with query :('
+				], 500);
+				// return back()->with('fail', 'Oops, Something wrong with query');
 		} catch (Exception $e){
+			// failed, Exception, return error message
 				Log::error($e->getMessage());
-				return back()->with('fail', 'Oops, Something unexpected happened');
+
+				return response()->json([
+					'message' => 'Oops, Something unexpected happened :('
+				], 500);
+				// return back()->with('fail', 'Oops, Something unexpected happened');
 		}
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Programs  $programs
-     * @return \Illuminate\Http\Response
-     */
-    public function show($studentId)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Programs  $programs
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Student $student)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Programs  $programs
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Programs $programs)
-    {
-        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Programs  $programs
-     * @return \Illuminate\Http\Response
+     * @param  studentId
      */
-    public function destroy(Programs $programs)
+    public function destroyById($studentId)
     {
-        //
+
+        $affected = DB::table('student')
+        			->where('unique_id', $studentId)
+        			->update(['active' => 0]);
+
+		return redirect()
+					->route('student');
+    }
+
+    /*
+		Update the tartget student
+    */
+    public function update(Student $student)
+    {
+    	$studentId = $student->studentId;
+    	dd($studentId);
+    	$affected = DB::table('student')
+        			->where('unique_id', $studentId)
+        			->update(['active' => 0]);
+
+		return redirect()
+					->route('student');
     }
 
 }

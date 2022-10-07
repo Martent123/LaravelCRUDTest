@@ -23,7 +23,7 @@
 
             <!-- only display student button for user who have auth -->
             @auth
-            <a href="{{url('/dashboard')}}" class="block mx-4 my-2 text-white lg:inline-block hover:text-red-600">Dashboard</a>
+            <a href="{{url('/student')}}" class="block mx-4 my-2 text-white lg:inline-block hover:text-red-600">Student List</a>
             @endauth
 		</div>
 
@@ -47,26 +47,26 @@
 
                     <x-slot name="content">
 
-                    	<!-- redirect to dashboard -->
-                        <form method="GET" action="{{ route('dashboard') }}">
+                    	<!-- redirect to student -->
+                        <form method="GET" action="{{ route('student') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('dashboard')"
+                            <x-dropdown-link :href="route('student')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Dashboard') }}
+                                {{ __('student') }}
                             </x-dropdown-link>
 
                         </form>
 
-                        <!-- redirect to upload page -->
-                        <form method="GET" action="{{ route('upload') }}">
+                        <!-- redirect to student page -->
+                        <form method="GET" action="{{ route('student') }}">
                             @csrf
 
-                            <x-dropdown-link :href="route('upload')"
+                            <x-dropdown-link :href="route('student')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Upload Dataset') }}
+                                {{ __('student Dataset') }}
                             </x-dropdown-link>
 
                         </form>
