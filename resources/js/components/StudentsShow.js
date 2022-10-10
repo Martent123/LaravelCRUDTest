@@ -48,13 +48,13 @@ function StudentsShow() {
                                 <td>{currentStudent.program_id}</td>
                                 <td>{currentStudent.updated_at}</td>
                                 <td>{currentStudent.created_at}</td>
-                                <td><a href={'/removeStudent/'+currentStudent.unique_id} className="text-green cursor-pointer">View</a></td>
-                                <td><a href={'/removeStudent/'+currentStudent.unique_id} className="text-blue cursor-pointer">Update</a></td>
-                                <td><a href={'/removeStudent/'+currentStudent.unique_id} className="text-red-600 cursor-pointer">Trash</a></td>
+                                <td><a href={'/removeStudent/'+currentStudent.unique_id} className="text-green-500 cursor-pointer">View</a></td>
+                                <td><a href={'/removeStudent/'+currentStudent.unique_id} className="text-orange-500 cursor-pointer">Update</a></td>
+                                <td><a href={'/removeStudent/'+currentStudent.unique_id} className="text-red-500 cursor-pointer">Trash</a></td>
                             </tr>))
                     ) : (<tr>Loading...</tr>)
                 }
-                <tr><td colspan="11">
+                <tr><td colSpan="11">
                     <a href={'/studentCreate'} className="text-green cursor-pointer">Add new student</a>
                 </td></tr>
                 </tbody>

@@ -6155,16 +6155,16 @@ function StudentsShow() {
       className: "bg-white hover:bg-gray-100"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.unique_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.last_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.first_name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.phone), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.program_id), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.updated_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, currentStudent.created_at), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
       href: '/removeStudent/' + currentStudent.unique_id,
-      className: "text-green cursor-pointer"
+      className: "text-green-500 cursor-pointer"
     }, "View")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
       href: '/removeStudent/' + currentStudent.unique_id,
-      className: "text-blue cursor-pointer"
+      className: "text-orange-500 cursor-pointer"
     }, "Update")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
       href: '/removeStudent/' + currentStudent.unique_id,
-      className: "text-red-600 cursor-pointer"
+      className: "text-red-500 cursor-pointer"
     }, "Trash")));
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, "Loading..."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", {
-    colspan: "11"
+    colSpan: "11"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("a", {
     href: '/studentCreate',
     className: "text-green cursor-pointer"
