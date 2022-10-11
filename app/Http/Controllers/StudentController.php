@@ -110,8 +110,10 @@ class StudentController extends Controller
         			->where('unique_id', $studentId)
         			->update(['active' => 0]);
 
-		return redirect()
-					->route('student');
+        if ($affected)
+        	return response()->json(['message' => 'Student Removed']);
+        else
+        	return response()->json(['message' => 'Failed to remove the student']);
     }
 
     /*
@@ -128,5 +130,7 @@ class StudentController extends Controller
 		return redirect()
 					->route('student');
     }
+
+
 
 }

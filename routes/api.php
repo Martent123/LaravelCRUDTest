@@ -27,9 +27,7 @@ Route::get('/students', function(){
 });
 
 // view the student by id
-Route::get('/students/{id}', function($id){
-	return Student::find($id);
-});
+Route::get('/students/{id}', [StudentController::class, 'destroyById']);
 
 // remove the student by id
 Route::get('/removeStudent/{studentid}', [StudentController::class, 'destroyById']);
