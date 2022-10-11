@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('student', StudentController::class);
+// Route::resource('student', StudentController::class);
 
 // list all active student
 Route::get('/students', function(){

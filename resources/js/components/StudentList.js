@@ -7,14 +7,14 @@ function StudentList() {
     // fetch students info
     const[state, studentData] = useState({students: ''})
 
-    const fetchProgram = async() =>{
+    const fetchStudents = async() =>{
         const api = await fetch("/api/students");
         studentData({
             students: await api.json()
         })
     }
     useEffect(() => {
-        fetchProgram();
+        fetchStudents();
     }, [])
     
     // console.log(state.students)
@@ -49,7 +49,7 @@ function StudentList() {
                                 <td className="border border-slate-400">{currentStudent.program_id}</td>
                                 <td className="border border-slate-400">{currentStudent.updated_at}</td>
                                 <td className="border border-slate-400">{currentStudent.created_at}</td>
-                                <td className="border border-slate-400"><a href={'/viewStudent/'+currentStudent.unique_id} className="text-green-500 cursor-pointer">View</a></td>
+                                <td className="border border-slate-400"><a href={'/StudentShow/'+currentStudent.unique_id} className="text-green-500 cursor-pointer">View</a></td>
                                 <td className="border border-slate-400"><a href={'/editStudent/'+currentStudent.unique_id} className="text-orange-500 cursor-pointer">Update</a></td>
                                 <td className="border border-slate-400"><a href={'/removeStudent/'+currentStudent.unique_id} className="text-red-500 cursor-pointer">Trash</a></td>
                             </tr>))
