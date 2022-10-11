@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 // import { useNavigate } from 'react-router-dom'
 // import {BrowserRouter as Router} from 'react-router-dom';
 
-function CreateStudents() {
+function StudentCreate() {
     // const naviagate = useNavigate()
 
     // https://www.codecheef.org/article/laravel-8-react-js-fetch-data-example
@@ -103,12 +103,6 @@ function CreateStudents() {
                 </div>
             </div>
 
-            <div className="w-11/12 mx-auto">
-                <div className="mx-auto w-1/2 flex justify-center border border-2 py-5">
-                    <input className="rounded m-2 py-2 w-full  text-black cursor-pointer" type="submit" value="Confirm"/>
-                </div>      
-            </div>
-
             <div className="w-11/12 mx-auto text-red-600">
                     {Object.keys(validation).length > 0 ? (
                         Object.entries(validation).map(([k,v]) =>(
@@ -119,13 +113,19 @@ function CreateStudents() {
                         <h1></h1>
                       )}   
             </div>
+
+            <div className="w-11/12 mx-auto">
+                <div className="mx-auto w-1/2 flex justify-center border border-2 py-3 bg-green-400 rounded-3xl">
+                    <input className="rounded py-2 w-full font-bold text-gray-200 cursor-pointer" type="submit" value="Confirm"/>
+                </div>      
+            </div>
         </form>
     );
 }
 
-export default CreateStudents;
+export default StudentCreate;
 
 // DOM element
-if (document.getElementById('studentCreate')) {
-    ReactDOM.render(<CreateStudents />, document.getElementById('studentCreate'));
-}
+// if (document.getElementById('studentCreate')) {
+//     ReactDOM.render(<StudentCreate />, document.getElementById('studentCreate'));
+// }

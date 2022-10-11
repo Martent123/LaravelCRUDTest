@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 
-function StudentsShow() {
+
+function StudentList() {
     // fetch students info
     const[state, studentData] = useState({students: ''})
 
@@ -16,7 +17,7 @@ function StudentsShow() {
         fetchProgram();
     }, [])
     
-    console.log(state.students)
+    // console.log(state.students)
 
     return (
             <table className="table-auto w-full text-center bg-gray-100 p-2 border border-collapse border-slate-400" >
@@ -63,9 +64,9 @@ function StudentsShow() {
     );
 }
 
-export default StudentsShow;
+export default StudentList;
 
 // DOM element
-if (document.getElementById('studentsShow')) {
-    ReactDOM.render(<StudentsShow />, document.getElementById('studentsShow'));
-}
+// if (document.getElementById('StudentList')) {
+//     ReactDOM.render(<StudentList />, document.getElementById('StudentList'));
+// }
