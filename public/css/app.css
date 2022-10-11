@@ -708,6 +708,10 @@ select {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .ml-1 {
   margin-left: 0.25rem;
 }
@@ -776,6 +780,9 @@ select {
 }
 .h-6 {
   height: 1.5rem;
+}
+.h-5 {
+  height: 1.25rem;
 }
 .min-h-\[60vh\] {
   min-height: 60vh;
@@ -972,6 +979,9 @@ select {
 }
 .p-3 {
   padding: 0.75rem;
+}
+.p-5 {
+  padding: 1.25rem;
 }
 .py-12 {
   padding-top: 3rem;

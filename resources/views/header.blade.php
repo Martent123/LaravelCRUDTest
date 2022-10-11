@@ -13,7 +13,7 @@
 <body>
 	<!-- header nav bar -->
 
-	<nav class="flex bg-gray-800">
+	<nav class="flex bg-gray-800 p-5">
 
 
 
