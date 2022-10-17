@@ -13,8 +13,8 @@ use App\Models\Programs;
 |
 */
 // switched to react route
-Route::view('/{path?}', 'index')
-    ->where('path', '.*');
+// Route::view('/{path?}', 'index')
+//     ->where('path', '.*');
 
 // landing page
 // Route::get('/', function () {
@@ -38,12 +38,12 @@ Route::view('/{path?}', 'index')
 
 
 //return list of programs in db
-Route::get('/programs', function(){
-	return Programs::select('program')->get();
-});
+// Route::get('/programs', function(){
+// 	return Programs::select('program')->get();
+// });
 
-Route::get('/dashboard', function () {
-    return view('student');
-})->middleware(['auth', 'verified'])->name('student');
+// Route::get('/dashboard', function () {
+//     return view('student');
+// })->middleware(['auth', 'verified'])->name('student');
 
 require __DIR__.'/auth.php';

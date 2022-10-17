@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Data Visualization Tool</title>
+	<title>CRUD TEST</title>
 	<meta name="author" content="Chen">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<!-- css -->
