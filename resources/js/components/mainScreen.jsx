@@ -6,7 +6,8 @@ import StudentList from "./StudentList";
 import StudentCreate from "./StudentCreate";
 import StudentView from "./StudentView";
 import StudentRemove from "./StudentRemove";
-      
+import Docs from "./Docs";
+
 function MainScreen() {
 
     return (
@@ -15,6 +16,7 @@ function MainScreen() {
             <Route path="/StudentView/:id" element={<StudentView /> } />
             <Route path="/StudentCreate" element={<StudentCreate /> } />
             <Route path="/StudentRemove/:id" element={<StudentRemove /> } />
+            <Route path="/Docs" element={<Docs /> } />
         </Routes>
     );
 }
