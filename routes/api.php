@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\ProgramsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,5 @@ Route::put('students/{id}',[StudentController::class, 'updateStudent']);
 // remove the student by id
 Route::delete('students/{id}', [StudentController::class, 'destroyById']);
 
+// list all programs
+Route::get('programs', [ProgramsController::class, 'getPrograms']);

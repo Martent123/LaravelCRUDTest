@@ -13,8 +13,8 @@ use App\Models\Programs;
 |
 */
 // switched to react route
-// Route::view('/{path?}', 'index')
-//     ->where('path', '.*');
+Route::view('/{path?}', 'index')
+    ->where('path', '.*');
 
 // landing page
 // Route::get('/', function () {
