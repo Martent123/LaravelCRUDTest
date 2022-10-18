@@ -16,7 +16,7 @@ function StudentList() {
     useEffect(() => {
         fetchStudents();
     }, [])
-    
+    console.log(state.students)
     return (
             <table className="table-auto w-full text-center bg-gray-100 p-2 border border-collapse border-slate-400" >
                 <thead>
@@ -35,8 +35,8 @@ function StudentList() {
 
                 <tbody>
                 {
-                    state.students?(
-                        state?.students.data?.map((currentStudent) => (
+                    Array.isArray(state.students.data)?(
+                        state?.students?.data?.map((currentStudent) => (
                             <tr key={currentStudent.unique_id} className="bg-white hover:bg-gray-100">
                                 <td className="border border-slate-400">{currentStudent.unique_id}</td>
                                 <td className="border border-slate-400">{currentStudent.last_name}</td>
@@ -49,7 +49,7 @@ function StudentList() {
                                 <td className="border border-slate-400"><a href={'/StudentView/'+currentStudent.unique_id} className="text-green-500 cursor-pointer">View</a></td>
                                 <td className="border border-slate-400"><a href={'/StudentRemove/'+currentStudent.unique_id} className="text-red-500 cursor-pointer">Trash</a></td>
                             </tr>))
-                    ) : (<tr className="border border-slate-400"><td colSpan="11">Loading...</td></tr>)
+                    ) : (<tr className="border border-slate-400"><td colSpan="11">No Data Available</td></tr>)
                 }
                 <tr><td colSpan="11">
                     <a href={'/studentCreate'} className="text-green cursor-pointer">Add new student</a>
