@@ -11,5 +11,6 @@ import './bootstrap';
 // import './components/Example';
 // import './components/User';
 // import './components/Student';
-import './components/StudentCreate';
-import './components/StudentsShow';
+// import './components/StudentCreate';
+// import './components/StudentList';
+import './components/mainScreen';

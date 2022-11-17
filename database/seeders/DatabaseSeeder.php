@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         // start the seeder of program table
         $this->call([
         ProgramTableSeeder::class,
+        StudentTableSeeder::class,
         ]);
     }
 }

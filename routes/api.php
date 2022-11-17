@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
-use App\Models\Student;
+use App\Http\Controllers\ProgramsController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,17 +20,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('student', StudentController::class);
+// Route::resource('student', StudentController::class);
 
 // list all active student
-Route::get('/students', function(){
-	return Student::where('active',1)->get();
-});
+Route::get('students', [StudentController::class, 'getStudents']);
 
 // view the student by id
-Route::get('/students/{id}', function($id){
-	return Student::find($id);
-});
+Route::get('students/{id}', [StudentController::class, 'getStudentById']);
+
+// Create a new student
+Route::post('/students', [StudentController::class, 'createStudent']);
+
+// Update student
+Route::put('students/{id}',[StudentController::class, 'updateStudent']);
 
 // remove the student by id
-Route::get('/removeStudent/{studentid}', [StudentController::class, 'destroyById']);
+Route::delete('students/{id}', [StudentController::class, 'destroyById']);
+
+// list all programs
+Route::get('programs', [ProgramsController::class, 'getPrograms']);
